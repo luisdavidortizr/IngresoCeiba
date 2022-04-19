@@ -11,7 +11,12 @@ import SwiftUI
 struct IngresoCeibaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            // Vista de navegación con título de la app
+            NavigationView {
+                UsersList(
+                    viewModel: .init(userFetching: UserFetchingPlaceholder())
+                ).navigationTitle("Prueba de Ingreso")
+            }
         }
     }
 }
