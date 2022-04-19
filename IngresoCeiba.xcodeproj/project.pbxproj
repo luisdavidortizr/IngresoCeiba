@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		6C2C5A4C280E2401004B2F85 /* IngresoCeibaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C5A4B280E2401004B2F85 /* IngresoCeibaApp.swift */; };
-		6C2C5A4E280E2401004B2F85 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C5A4D280E2401004B2F85 /* ContentView.swift */; };
 		6C2C5A50280E2404004B2F85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C2C5A4F280E2404004B2F85 /* Assets.xcassets */; };
 		6C2C5A53280E2404004B2F85 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C2C5A52280E2404004B2F85 /* Preview Assets.xcassets */; };
 		6C2C5A5D280E2404004B2F85 /* IngresoCeibaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C5A5C280E2404004B2F85 /* IngresoCeibaTests.swift */; };
 		6C2C5A67280E2404004B2F85 /* IngresoCeibaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C5A66280E2404004B2F85 /* IngresoCeibaUITests.swift */; };
 		6C2C5A69280E2404004B2F85 /* IngresoCeibaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C5A68280E2404004B2F85 /* IngresoCeibaUITestsLaunchTests.swift */; };
+		6C2C5A76280E263F004B2F85 /* UsersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C5A75280E263F004B2F85 /* UsersList.swift */; };
+		6C2C5A78280E26F2004B2F85 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C5A77280E26F2004B2F85 /* User.swift */; };
+		6C2C5A7C280E2F5B004B2F85 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C5A7B280E2F5B004B2F85 /* Post.swift */; };
+		6C2C5A82280E36D6004B2F85 /* UsersList.ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C5A81280E36D6004B2F85 /* UsersList.ViewModelTests.swift */; };
+		6C2C5A85280E37BF004B2F85 /* UsersList.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C5A84280E37BF004B2F85 /* UsersList.ViewModel.swift */; };
+		6C2C5A88280E3B2D004B2F85 /* User+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C5A87280E3B2D004B2F85 /* User+Fixture.swift */; };
+		6C2C5A8A280E43C9004B2F85 /* UserFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C5A89280E43C9004B2F85 /* UserFetching.swift */; };
+		6C2C5A8C280E4700004B2F85 /* UserFetchingPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C5A8B280E4700004B2F85 /* UserFetchingPlaceholder.swift */; };
+		6C2C5A8E280E540B004B2F85 /* UserRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C5A8D280E540B004B2F85 /* UserRow.swift */; };
+		6C2C5A90280E5574004B2F85 /* UserRow.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C5A8F280E5574004B2F85 /* UserRow.ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6C2C5A48280E2401004B2F85 /* IngresoCeiba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IngresoCeiba.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C2C5A48280E2401004B2F85 /* Prueba de Ingreso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prueba de Ingreso.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2C5A4B280E2401004B2F85 /* IngresoCeibaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngresoCeibaApp.swift; sourceTree = "<group>"; };
-		6C2C5A4D280E2401004B2F85 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6C2C5A4F280E2404004B2F85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C2C5A52280E2404004B2F85 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6C2C5A58280E2404004B2F85 /* IngresoCeibaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IngresoCeibaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +52,16 @@
 		6C2C5A62280E2404004B2F85 /* IngresoCeibaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IngresoCeibaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2C5A66280E2404004B2F85 /* IngresoCeibaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngresoCeibaUITests.swift; sourceTree = "<group>"; };
 		6C2C5A68280E2404004B2F85 /* IngresoCeibaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngresoCeibaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6C2C5A75280E263F004B2F85 /* UsersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersList.swift; sourceTree = "<group>"; };
+		6C2C5A77280E26F2004B2F85 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6C2C5A7B280E2F5B004B2F85 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		6C2C5A81280E36D6004B2F85 /* UsersList.ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersList.ViewModelTests.swift; sourceTree = "<group>"; };
+		6C2C5A84280E37BF004B2F85 /* UsersList.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersList.ViewModel.swift; sourceTree = "<group>"; };
+		6C2C5A87280E3B2D004B2F85 /* User+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Fixture.swift"; sourceTree = "<group>"; };
+		6C2C5A89280E43C9004B2F85 /* UserFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFetching.swift; sourceTree = "<group>"; };
+		6C2C5A8B280E4700004B2F85 /* UserFetchingPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFetchingPlaceholder.swift; sourceTree = "<group>"; };
+		6C2C5A8D280E540B004B2F85 /* UserRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRow.swift; sourceTree = "<group>"; };
+		6C2C5A8F280E5574004B2F85 /* UserRow.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRow.ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +102,7 @@
 		6C2C5A49280E2401004B2F85 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6C2C5A48280E2401004B2F85 /* IngresoCeiba.app */,
+				6C2C5A48280E2401004B2F85 /* Prueba de Ingreso.app */,
 				6C2C5A58280E2404004B2F85 /* IngresoCeibaTests.xctest */,
 				6C2C5A62280E2404004B2F85 /* IngresoCeibaUITests.xctest */,
 			);
@@ -95,7 +113,9 @@
 			isa = PBXGroup;
 			children = (
 				6C2C5A4B280E2401004B2F85 /* IngresoCeibaApp.swift */,
-				6C2C5A4D280E2401004B2F85 /* ContentView.swift */,
+				6C2C5A79280E2EF4004B2F85 /* Model */,
+				6C2C5A7A280E2F0A004B2F85 /* View */,
+				6C2C5A83280E36F7004B2F85 /* ViewModel */,
 				6C2C5A4F280E2404004B2F85 /* Assets.xcassets */,
 				6C2C5A51280E2404004B2F85 /* Preview Content */,
 			);
@@ -113,6 +133,8 @@
 		6C2C5A5B280E2404004B2F85 /* IngresoCeibaTests */ = {
 			isa = PBXGroup;
 			children = (
+				6C2C5A86280E3B11004B2F85 /* ModelTests */,
+				6C2C5A80280E36AC004B2F85 /* ViewModelTests */,
 				6C2C5A5C280E2404004B2F85 /* IngresoCeibaTests.swift */,
 			);
 			path = IngresoCeibaTests;
@@ -125,6 +147,51 @@
 				6C2C5A68280E2404004B2F85 /* IngresoCeibaUITestsLaunchTests.swift */,
 			);
 			path = IngresoCeibaUITests;
+			sourceTree = "<group>";
+		};
+		6C2C5A79280E2EF4004B2F85 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6C2C5A77280E26F2004B2F85 /* User.swift */,
+				6C2C5A7B280E2F5B004B2F85 /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6C2C5A7A280E2F0A004B2F85 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6C2C5A75280E263F004B2F85 /* UsersList.swift */,
+				6C2C5A8D280E540B004B2F85 /* UserRow.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6C2C5A80280E36AC004B2F85 /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				6C2C5A81280E36D6004B2F85 /* UsersList.ViewModelTests.swift */,
+			);
+			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
+		6C2C5A83280E36F7004B2F85 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6C2C5A84280E37BF004B2F85 /* UsersList.ViewModel.swift */,
+				6C2C5A8F280E5574004B2F85 /* UserRow.ViewModel.swift */,
+				6C2C5A89280E43C9004B2F85 /* UserFetching.swift */,
+				6C2C5A8B280E4700004B2F85 /* UserFetchingPlaceholder.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6C2C5A86280E3B11004B2F85 /* ModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				6C2C5A87280E3B2D004B2F85 /* User+Fixture.swift */,
+			);
+			path = ModelTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,7 +211,7 @@
 			);
 			name = IngresoCeiba;
 			productName = IngresoCeiba;
-			productReference = 6C2C5A48280E2401004B2F85 /* IngresoCeiba.app */;
+			productReference = 6C2C5A48280E2401004B2F85 /* Prueba de Ingreso.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6C2C5A57280E2404004B2F85 /* IngresoCeibaTests */ = {
@@ -257,8 +324,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C2C5A4E280E2401004B2F85 /* ContentView.swift in Sources */,
+				6C2C5A8A280E43C9004B2F85 /* UserFetching.swift in Sources */,
 				6C2C5A4C280E2401004B2F85 /* IngresoCeibaApp.swift in Sources */,
+				6C2C5A8C280E4700004B2F85 /* UserFetchingPlaceholder.swift in Sources */,
+				6C2C5A76280E263F004B2F85 /* UsersList.swift in Sources */,
+				6C2C5A85280E37BF004B2F85 /* UsersList.ViewModel.swift in Sources */,
+				6C2C5A90280E5574004B2F85 /* UserRow.ViewModel.swift in Sources */,
+				6C2C5A78280E26F2004B2F85 /* User.swift in Sources */,
+				6C2C5A7C280E2F5B004B2F85 /* Post.swift in Sources */,
+				6C2C5A8E280E540B004B2F85 /* UserRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +340,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C2C5A82280E36D6004B2F85 /* UsersList.ViewModelTests.swift in Sources */,
 				6C2C5A5D280E2404004B2F85 /* IngresoCeibaTests.swift in Sources */,
+				6C2C5A88280E3B2D004B2F85 /* User+Fixture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +421,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -399,7 +475,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -431,7 +507,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.luisdavidortizr.IngresoCeiba;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Prueba de Ingreso";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -460,7 +536,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.luisdavidortizr.IngresoCeiba;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Prueba de Ingreso";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
