@@ -10,6 +10,7 @@ extension UserRow {
     struct ViewModel {
         
         // MARK: - Variables del Modelo de Vista
+        let user: User
         let name: String
         let phone: String
         let email: String
@@ -19,6 +20,7 @@ extension UserRow {
             self.name = user.name
             self.phone = user.phone
             self.email = user.email
+            self.user = user
         }
         
     }

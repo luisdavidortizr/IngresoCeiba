@@ -7,6 +7,9 @@
 
 // MARK: - Estructuras de publicación
 
-class Post: Codable {
-    
+struct Post: Codable, Equatable, Identifiable {
+    let userId: Int
+    let id: Int
+    let title: String
+    let body: String
 }

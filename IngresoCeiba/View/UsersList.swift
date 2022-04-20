@@ -22,17 +22,24 @@ struct UsersList: View {
         
         } else {
             
-            List {
-                // Si la lista de usuarios a mostrar está vacía muestra texto "La lista está vacía"
-                if viewModel.searchResults.isEmpty {
-                    Text("La lista está vacía")
-                }
-                // Si la lista contiene usuarios muestra los UserRow
-                ForEach(viewModel.searchResults, id: \.id) { user in
-                    UserRow(viewModel: .init(user: user))
-                }
-            }.searchable(text: $viewModel.searchText) // La vista permite búsqueda
+            switch viewModel.users {
+            case .success(_):
+                List {
+                    // Si la lista de usuarios a mostrar está vacía muestra texto "La lista está vacía"
+                    if viewModel.searchResults.isEmpty {
+                        Text("La lista está vacía")
+                    }
+                    // Si la lista contiene usuarios muestra los UserRow
+                    ForEach(viewModel.searchResults, id: \.id) { user in
+                        UserRow(viewModel: .init(user: user))
+                    }
+                }.searchable(text: $viewModel.searchText) // La vista permite búsqueda
+            case .failure(let error):
+                Text("Ha ocurrido un error")
+                Text(error.localizedDescription).italic()
+            }
         }
+
     }
 }
 

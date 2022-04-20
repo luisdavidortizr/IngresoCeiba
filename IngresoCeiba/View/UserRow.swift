@@ -36,12 +36,19 @@ struct UserRow: View {
             
             // Botón para ver publicaciones
             HStack {
-                Button("Ver Publicaciones") {
-                    
-                }.padding(.top)
+                Button("Ver Publicaciones") {}
+                    .padding(.top)
+                    .foregroundColor(.blue)
             }.frame(maxWidth: .infinity, alignment: .trailing)
             
+            NavigationLink {
+                UserPosts(viewModel: .init(user: viewModel.user, userFetching: UserFetcher()))
+            } label: {
+                EmptyView()
+            }
+            
         }.padding()
+
         
     }
         
