@@ -5,7 +5,7 @@
 //  Created by Luis David Ortiz on 18/04/22.
 //
 
-// MARK: - Estructuras de publicación
+// MARK: - Estructura de publicación
 
 struct Post: Codable, Equatable, Identifiable {
     let userId: Int

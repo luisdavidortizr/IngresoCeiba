@@ -15,15 +15,7 @@ class UsersListViewModelTests: XCTestCase {
     
     var cancellables = Set<AnyCancellable>()
     
-    func loadUsersTestData() throws -> [User] {
-        let url = try XCTUnwrap(
-            Bundle(for: type(of: self)).url(forResource: "users",withExtension: "json")
-        )
-        let data = try Data(contentsOf: url)
-        return try JSONDecoder().decode([User].self, from: data)
-    }
-    
-    //MARK: Pruebas de descarga de usuarios
+    //MARK: - Pruebas de descarga de usuarios
     
     // Al Iniciar la descarga de usuarios publica una lista vacía y la variable loading está en true
     func test_WhenFetchingStarts_PublishesEmpyUserList() throws {
@@ -98,7 +90,8 @@ class UsersListViewModelTests: XCTestCase {
     
     // Cuando no hay texto de búsqueda devuelve toda la lista de usuarios
     func test_WhenNoSearchText_PublishesAllUsers() throws {
-        let users = try loadUsersTestData()
+        let data = try dataFromJSONFileNamed("users")
+        let users = try JSONDecoder().decode([User].self, from: data)
         let viewModel = UsersList.ViewModel(users: users)
         
         viewModel.searchText = ""
@@ -107,7 +100,8 @@ class UsersListViewModelTests: XCTestCase {
     
     // Cuando se busca un texto devuelve los usuarios que lo contengan en el nombre
     func test_WhenUserSearchesExistingName_PublishesUsersContainingSearchText() throws {
-        let users = try loadUsersTestData()
+        let data = try dataFromJSONFileNamed("users")
+        let users = try JSONDecoder().decode([User].self, from: data)
         let viewModel = UsersList.ViewModel(users: users)
         
         viewModel.searchText = "Leanne"
@@ -117,11 +111,12 @@ class UsersListViewModelTests: XCTestCase {
     
     // Cuando se busca un nombre que no existe devuelve una lista vacía
     func test_WhenUserSearchesNonExistingText_PublishesEmptyUserList() throws {
-        let users = try loadUsersTestData()
+        let data = try dataFromJSONFileNamed("users")
+        let users = try JSONDecoder().decode([User].self, from: data)
         let viewModel = UsersList.ViewModel(users: users)
         
         viewModel.searchText = "Patrick"
-        XCTAssertEqual(viewModel.searchResults.count, 0)
+        XCTAssertTrue(viewModel.searchResults.isEmpty)
     }
     
 }

@@ -9,10 +9,12 @@
 import XCTest
 import Combine
 
+// Caso de Prueba: Carga de usuarios y publicaciones del servidor
 class UserFetcherTests: XCTestCase {
     
     var cancellables = Set<AnyCancellable>()
     
+    // Carga satisfactoria de usuarios
     func test_WhenUserRequestSucceeds_PublishesDecodedUsers() throws {
         let url = try XCTUnwrap(
             Bundle(for: type(of: self)).url(forResource: "users",withExtension: "json")
@@ -37,6 +39,7 @@ class UserFetcherTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
     
+    // Error en carga de usuarios
     func test_WhenUserRequestFails_PublishesReceivedErrors() {
         let expectedError = URLError(.badServerResponse)
         let userFetcher = UserFetcher(networkFetching: NetworkFetchingStub(returning: .failure(expectedError)))
@@ -56,6 +59,7 @@ class UserFetcherTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
     
+    // Carga satisfactoria de publicaciones
     func test_WhenPostsRequestSucceeds_PublishesDecodedPosts() throws {
         let url = try XCTUnwrap(
             Bundle(for: type(of: self)).url(forResource: "posts",withExtension: "json")
@@ -80,6 +84,7 @@ class UserFetcherTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
     
+    // Error en carga de publicaciones
     func test_WhenPostsRequestFails_PublishesReceivedErrors() {
         let expectedError = URLError(.badServerResponse)
         let userFetcher = UserFetcher(networkFetching: NetworkFetchingStub(returning: .failure(expectedError)))

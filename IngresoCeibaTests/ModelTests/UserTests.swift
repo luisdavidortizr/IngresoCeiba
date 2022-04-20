@@ -25,6 +25,7 @@ class UserTests: XCTestCase {
         XCTAssertEqual(item.name, "Leanne Graham")
         XCTAssertEqual(item.phone, "1-770-736-8031 x56442")
         XCTAssertEqual(item.email, "Sincere@april.biz")
+        XCTAssertEqual(item.id, 1)
     }
     
 }

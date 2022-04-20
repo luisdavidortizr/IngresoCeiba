@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+// URLSession conforma al protocolo para dar la respuesta requerida
 extension URLSession: NetworkFetching {
     
     func load(_ request: URLRequest) -> AnyPublisher<Data, URLError> {

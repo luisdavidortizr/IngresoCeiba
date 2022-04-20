@@ -65,10 +65,7 @@ struct UserPosts: View {
 
 struct UserPosts_Previews: PreviewProvider {
     static var previews: some View {
-        let location = User.Address.Location(lat: "-37.3159", lng: "81.1496")
-        let address = User.Address(street: "Kulas Light", suite: "Apt. 556", city: "Gwenborough", zipcode: "92998-3874", geo: location)
-        let company = User.Company(name: "Romaguera-Crona", catchPhrase: "Multi-layered client-server neural-net", bs: "harness real-time e-markets")
-        let user = User(id: 1, name: "Leanne Graham", username: "Bret", email: "Sincere@april.biz", address: address, phone: "1-770-736-8031 x56442", website: "website", company: company)
+        let user = User(id: 1, name: "Leanne Graham",email: "Sincere@april.biz", phone: "1-770-736-8031 x56442")
         UserPosts(viewModel: .init(user: user, userFetching: UserFetchingPlaceholder()))
     }
 }

@@ -11,15 +11,9 @@ extension UserRow {
         
         // MARK: - Variables del Modelo de Vista
         let user: User
-        let name: String
-        let phone: String
-        let email: String
         
         // MARK: - Constructores
         init(user: User) {
-            self.name = user.name
-            self.phone = user.phone
-            self.email = user.email
             self.user = user
         }
         
