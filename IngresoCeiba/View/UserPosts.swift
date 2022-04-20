@@ -26,6 +26,11 @@ struct UserPosts: View {
             }.frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
             
+            Text("Publicaciones:")
+                .font(.title3)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal)
+            
             if viewModel.loading {
                 
                 ProgressView("Cargando publicaciones...")
