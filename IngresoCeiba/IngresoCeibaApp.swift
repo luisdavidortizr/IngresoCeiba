@@ -14,7 +14,7 @@ struct IngresoCeibaApp: App {
             // Vista de navegación con título de la app
             NavigationView {
                 UsersList(
-                    viewModel: .init(userFetching: UserFetcher())
+                    viewModel: .init(saveKey: Storage.saveKey,userFetching: UserFetcher())
                 ).navigationTitle("Prueba de Ingreso")
             }
         }
