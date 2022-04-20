@@ -14,32 +14,49 @@ extension UsersList {
         // MARK: - Variables del Modelo de Vista
         var cancellables = Set<AnyCancellable>()
         
-        @Published private(set) var users: [User]
+        @Published private(set) var users: Result<[User], Error> = .success([])
         @Published var searchText = String()
         @Published var loading: Bool
         
         // Resultado de la búsqueda
         var searchResults: [User] {
-            if searchText.isEmpty {
-                return users
-            } else {
-                return users.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+            do {
+                let users = try users.get()
+                let result = searchText.isEmpty ? users : users.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+                return result
+            } catch {
+                return []
             }
+        }
+        
+        func retryFetching() {
+            // TODO: Cuando esté lista la red
         }
         
         // MARK: - Constructores
         init(
             userFetching: UserFetching
         ) {
-            users = []
             loading = true
             userFetching
                 .fetchUsers()
-                .sink(receiveCompletion: { _ in }, receiveValue: { [weak self] value in
-                    self?.loading = false
-                    self?.users = value
-                })
+                .sink(
+                    receiveCompletion: { [weak self] completion in
+                        guard case .failure(let error) = completion else { return }
+                        self?.loading = false
+                        self?.users = .failure(error)
+                    },
+                    receiveValue: { [weak self] value in
+                        self?.loading = false
+                        self?.users = .success(value)
+                    })
                 .store(in: &cancellables)
+        }
+        
+        // Para pruebas
+        init(users: [User]) {
+            self.users = .success(users)
+            self.loading = true
         }
         
     }

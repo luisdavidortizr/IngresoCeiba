@@ -11,4 +11,6 @@ import Combine
 protocol UserFetching {
     
     func fetchUsers() -> AnyPublisher<[User], Error>
+    
+    func fetchPosts(userId: Int) -> AnyPublisher<[Post], Error>
 }
