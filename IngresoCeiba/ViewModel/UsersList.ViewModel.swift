@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 
 extension UsersList {
     
@@ -30,6 +31,7 @@ extension UsersList {
         }
         
         // MARK: - Constructores
+        
         init(
             userFetching: UserFetching
         ) {
@@ -45,14 +47,22 @@ extension UsersList {
                     receiveValue: { [weak self] value in
                         self?.loading = false
                         self?.users = .success(value)
+                        Storage.shared.savePersistentUsers(value)
                     })
                 .store(in: &cancellables)
         }
         
-        // Constructor para pruebas unitarias
         init(users: [User]) {
             self.users = .success(users)
-            self.loading = true
+            self.loading = false
+        }
+        
+        convenience init(saveKey: String = Storage.saveKey, userFetching: UserFetching) {
+            if let users = Storage.shared.loadPersistentUsers(forKey: saveKey) {
+                self.init(users: users)
+            } else {
+                self.init(userFetching: userFetching)
+            }
         }
         
     }

@@ -14,11 +14,65 @@ import XCTest
 class UsersListViewModelTests: XCTestCase {
     
     var cancellables = Set<AnyCancellable>()
+    let saveKey = "TestUsers"
+    
+    // MARK: - Pruebas de persistencia de datos
+    
+    // Al intentar cargar los datos y no hay datos guardados, devuelve nil
+    func test_WhenNoUsersSaved_LoadingReturnsNilValue() {
+        UserDefaults.standard.removeObject(forKey: saveKey)
+        let savedUsers = Storage.shared.loadPersistentUsers(forKey: saveKey)
+        
+        XCTAssertNil(savedUsers)
+    }
+    
+    // Al intentar cargar los datos y hay usuarios guardados, devuelve una lista de usuarios
+    func test_WhenUsersExistInDefaults_LoadingReturnsUserList() throws {
+        let data = try dataFromJSONFileNamed("users")
+        let users = try JSONDecoder().decode([User].self, from: data)
+        
+        let jsonData = try? JSONEncoder().encode(users)
+        UserDefaults.standard.set(jsonData, forKey: saveKey)
+        
+        let savedUsers = Storage.shared.loadPersistentUsers(forKey: saveKey)
+        
+        XCTAssertEqual(savedUsers, users)
+    }
+    
+    // MARK: - Prueba de Integración: Carga de usuarios desde Defaults + Descarga de nuevos usuarios
+    
+    // Si los datos existen, el controlador debe usar estos y no cargarlos del servidor
+    func test_WhenUsersSaved_NoLoadFromServer() throws {
+        let data = try dataFromJSONFileNamed("users")
+        UserDefaults.standard.set(data, forKey: saveKey)
+        let expectedUsers = try JSONDecoder().decode([User].self, from: data)
+        
+        let viewModel = UsersList.ViewModel(saveKey: saveKey,userFetching: UserFetchingStub(returning: .success([.fixture()])))
+        let users = try viewModel.users.get()
+        
+        XCTAssertEqual(users, expectedUsers)
+        XCTAssertFalse(viewModel.loading)
+    }
+    
+    // Si los usuarios no están guardados el ViewModel debe descargarlos del servidor
+    func test_WhenUsersNotSaved_LoadUsersFromServer() throws {
+        UserDefaults.standard.removeObject(forKey: saveKey)
+        let viewModel = UsersList.ViewModel(userFetching: UserFetchingStub(returning: .success([.fixture()])))
+        let users = try viewModel.users.get()
+        
+        XCTAssertTrue(users.isEmpty)
+        XCTAssertTrue(viewModel.loading)
+    }
+    
+    // Si los usuarios están guardados debe cargar estos y no los del servidor
     
     //MARK: - Pruebas de descarga de usuarios
     
     // Al Iniciar la descarga de usuarios publica una lista vacía y la variable loading está en true
     func test_WhenFetchingStarts_PublishesEmpyUserList() throws {
+        // En esta versión ya el test es innecesario porque lo reemplaza test_WhenUsersNotSaved_LoadUsersFromServer
+        try XCTSkipIf(true, "Test no longer needed, replaced by test_WhenUsersNotSaved_LoadUsersFromServer")
+        
         // Se carga el modelo
         let viewModel = UsersList.ViewModel(userFetching: UserFetchingStub(returning: .success([.fixture()])))
         let users = try viewModel.users.get()
