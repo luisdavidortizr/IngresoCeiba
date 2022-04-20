@@ -7,7 +7,7 @@
 
 import Combine
 
-// Protocolo para carga de usuarios
+// Protocolo para convertir la data de usuarios y publicaciones
 protocol UserFetching {
     
     func fetchUsers() -> AnyPublisher<[User], Error>

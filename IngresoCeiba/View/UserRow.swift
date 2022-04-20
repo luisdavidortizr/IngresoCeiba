@@ -18,20 +18,20 @@ struct UserRow: View {
         VStack(alignment: .leading) {
             
             // Nombre del usuario
-            Text(viewModel.name)
+            Text(viewModel.user.name)
                 .font(.title)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             // Teléfono del usuario
             HStack {
                 Image(systemName: "phone.fill")
-                Text(viewModel.phone)
+                Text(viewModel.user.phone)
             }
             
             // Correo del usuario
             HStack {
                 Image(systemName: "envelope.fill")
-                Text(viewModel.email)
+                Text(viewModel.user.email)
             }
             
             // Botón para ver publicaciones

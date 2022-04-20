@@ -29,10 +29,6 @@ extension UsersList {
             }
         }
         
-        func retryFetching() {
-            // TODO: Cuando esté lista la red
-        }
-        
         // MARK: - Constructores
         init(
             userFetching: UserFetching
@@ -53,7 +49,7 @@ extension UsersList {
                 .store(in: &cancellables)
         }
         
-        // Para pruebas
+        // Constructor para pruebas unitarias
         init(users: [User]) {
             self.users = .success(users)
             self.loading = true

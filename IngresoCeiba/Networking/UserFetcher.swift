@@ -8,6 +8,7 @@
 import Combine
 import Foundation
 
+// Clase para obtener información de usuarios y publicaciones del servidor
 class UserFetcher: UserFetching {
     
     let networkFetching: NetworkFetching
@@ -16,6 +17,7 @@ class UserFetcher: UserFetching {
         self.networkFetching = networkFetching
     }
     
+    // Función de carga de usuarios
     func fetchUsers() -> AnyPublisher<[User], Error> {
         
         let url = URL(string: Endpoints.usersUrl)!
@@ -28,6 +30,7 @@ class UserFetcher: UserFetching {
         
     }
     
+    // Función de carga de publicaciones
     func fetchPosts(userId: Int) -> AnyPublisher<[Post], Error> {
         
         var url = URLComponents(string: Endpoints.postsUrl)!

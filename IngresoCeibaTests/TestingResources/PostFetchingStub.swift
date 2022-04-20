@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-// Para pruebas de carga de usuarios
+// Se simula una clase que conforma al protocolo UserFetching para carga de publicaciones
 class PostFetchingStub: UserFetching {
     let result: Result<[Post], Error>
     

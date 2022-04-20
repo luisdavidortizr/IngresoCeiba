@@ -9,6 +9,7 @@
 
 extension Post {
     
+    // Generador de publicación para pruebas
     static func fixture(
         userId: Int = 1,
         id: Int = 1,

@@ -9,6 +9,7 @@
 import Combine
 import Foundation
 
+// Se simula una clase que conforma al protocolo NetworkFetching
 class NetworkFetchingStub: NetworkFetching {
     
     private let result: Result<Data, URLError>

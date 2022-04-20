@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+// Protocolo para obtener la información del servidor
 protocol NetworkFetching {
     
     func load(_ request: URLRequest) -> AnyPublisher<Data, URLError>
