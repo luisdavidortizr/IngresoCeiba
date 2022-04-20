@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import IngresoCeiba
+@testable import Prueba_de_Ingreso
 
 class IngresoCeibaTests: XCTestCase {
 
